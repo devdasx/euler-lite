@@ -5,6 +5,7 @@ import type { AppKitNetwork } from '@reown/appkit/networks'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { getNetworksByChainIds } from '~/entities/chainRegistry'
 import { hasBaseAppInjectedProvider } from '~/utils/base-app-wallet'
+import { getOathWallets } from '~/utils/oath-wallet'
 
 // Base docs Reown wallet listing ID for featuring Base Account in AppKit.
 const BASE_ACCOUNT_WALLET_ID = 'fd20dc426fb37566d803205b19bbc1d4096b248ac04548e3cfb6b3a38bd033aa'
@@ -80,6 +81,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       networks,
       projectId: projectId || '',
       metadata,
+      customWallets: getOathWallets(),
       themeVariables: {
         '--w3m-font-family': 'inherit',
       },
